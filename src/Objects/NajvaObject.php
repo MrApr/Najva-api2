@@ -5,8 +5,9 @@ namespace Najva\Src\Objects;
 
 
 use Carbon\Carbon;
+use Najva\Src\Formatter\ObjectFormatterInterface;
 
-class NajvaObject implements ObjectInterface
+class NajvaObject implements ObjectInterface,ObjectFormatterInterface
 {
     private $api_key;
     private $title;
@@ -15,15 +16,6 @@ class NajvaObject implements ObjectInterface
     private $sent_time;
 
     protected $extra_properties = array();
-
-    public function __construct(string $api_key, string $title, string $body, string $url, string $sent_time)
-    {
-        $this->api_key = $api_key;
-        $this->title = $title;
-        $this->body = $body;
-        $this->url = $url;
-        $this->sent_time = $sent_time;
-    }
 
     public function __set(string $name,string $value)
     {
@@ -37,7 +29,37 @@ class NajvaObject implements ObjectInterface
         }
     }
 
-    protected function formatData()
+    public function setApiKey(string $api_key): ObjectInterface
+    {
+        $this->api_key = $api_key;
+        return $this;
+    }
+
+    public function setTitle(string $title): ObjectInterface
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function setBody(string $body): ObjectInterface
+    {
+        $this->body = $body;
+        return $this;
+    }
+
+    public function setUrl(string $url): ObjectInterface
+    {
+        $this->url = $url;
+        return $this;
+    }
+
+    public function setTime(string $time): ObjectInterface
+    {
+        $this->sent_time = $time;
+        return $this;
+    }
+
+    public function prepareData()
     {
         $data = $this->extra_properties;
         $class_properties = get_object_vars($this);
@@ -48,17 +70,6 @@ class NajvaObject implements ObjectInterface
                 }
             }
         }
-        return $data;
-    }
-
-    public function getAllData(string $type = null)
-    {
-        $data = $this->formatData();
-
-        if($type == "object"){
-            return (object)$data;
-        }
-
-        return $data;
+        return (array)$data;
     }
 }
