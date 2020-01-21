@@ -6,4 +6,6 @@ php:
 os: linux
 
 before_script:
+  - curl --version
+  - composer self-update
   - composer install
