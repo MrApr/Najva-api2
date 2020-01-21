@@ -3,6 +3,7 @@ language: php
 php:
   - 7.1
 
+os: linux
+
 before_script:
-  - composer self-update
   - composer install
