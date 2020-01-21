@@ -4,6 +4,8 @@
 namespace Najva\Src\Objects;
 
 
+use Carbon\Carbon;
+
 interface ObjectInterface
 {
     public function __set(string $name,string $value);
@@ -20,5 +22,5 @@ interface ObjectInterface
 
     public function setUrl(string $url): ObjectInterface;
 
-    public function setTime(string $time): ObjectInterface;
+    public function setTime(Carbon $time): ObjectInterface;
 }

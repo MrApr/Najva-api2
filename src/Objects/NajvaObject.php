@@ -60,7 +60,7 @@ class NajvaObject implements ObjectInterface,ObjectFormatterInterface
         return $this;
     }
 
-    public function setTime(string $time): ObjectInterface
+    public function setTime(Carbon $time): ObjectInterface
     {
         $this->sent_time = $time;
         return $this;
