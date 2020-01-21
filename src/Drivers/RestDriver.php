@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Najva\Src\Formatter\ObjectFormatterInterface;
 
-class RestDriver implements ObjectFormatterInterface
+class RestDriver implements DriverInterface,ObjectFormatterInterface
 {
     private $base_url = "https://app.najva.com/api/v1/";
     private $data;
