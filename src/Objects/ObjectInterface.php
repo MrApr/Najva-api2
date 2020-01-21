@@ -10,6 +10,8 @@ interface ObjectInterface
 
     public function __get(string $name);
 
+    public function setToken(string $token): ObjectInterface;
+
     public function setApiKey(string $api_key): ObjectInterface;
 
     public function setTitle(string $title): ObjectInterface;

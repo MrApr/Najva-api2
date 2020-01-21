@@ -14,6 +14,7 @@ class NajvaObject implements ObjectInterface,ObjectFormatterInterface
     private $body;
     private $url;
     private $sent_time;
+    private $token;
 
     protected $extra_properties = array();
 
@@ -27,6 +28,12 @@ class NajvaObject implements ObjectInterface,ObjectFormatterInterface
         if(isset($this->extra_properties[$name])) {
             return $this->extra_properties[$name];
         }
+    }
+
+    public function setToken(string $token): ObjectInterface
+    {
+        $this->token = $token;
+        return $this;
     }
 
     public function setApiKey(string $api_key): ObjectInterface
