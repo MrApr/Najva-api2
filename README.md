@@ -1,4 +1,4 @@
-﻿Library for using Najva push notification API in order to send push notifications
+﻿PHP Library for using Najva push notification API in order to send push notifications
 
 ## Installation
 For install this library in your project copy and paste code below in terminal 
