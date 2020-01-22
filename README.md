@@ -1,5 +1,3 @@
-﻿[![Build Status](https://travis-ci.org/MrApr/Najva-Push-Api.svg?branch=master)](https://travis-ci.org/MrApr/Najva-Push-Api)
-
 ﻿Library for using Najva push notification API in order to send push notifications
 
 ## Installation
