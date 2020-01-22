@@ -55,6 +55,8 @@ This object accepts two parameters in it's constructor. Parameter one that is re
     print_r($najva->sendToAllRequest());
 
  **Methods**
+
+
  | Row | Method name | description | 
  | :--: | :--: | :--: |
  | 1 | sendToAllRequest | Sends Push notification to all subscribed users |
