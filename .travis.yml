@@ -5,6 +5,8 @@ php:
 
 os: linux
 
+install: php vendor/vendors.php
+
 before_script:
   - curl --version
   - composer self-update
