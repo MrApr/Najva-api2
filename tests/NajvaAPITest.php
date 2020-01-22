@@ -14,6 +14,6 @@ class NajvaAPITest extends TestCase
             ->setTime(\Carbon\Carbon::now()->addMinute(280))
             ->setUrl("https://marketingshop.ir");
         $najva = new \Najva\Src\Najva($najva_object,new \Najva\Src\Drivers\RestDriver());
-        $this->assertSame($najva->sendToAllRequest()['status'],201);
+        $this->assertEquals($najva->sendToAllRequest()['status'],201);
     }
 }
