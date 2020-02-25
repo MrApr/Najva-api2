@@ -9,7 +9,8 @@ use GuzzleHttp\Exception\RequestException;
 
 class RestDriver implements DriverInterface
 {
-    private $base_url = "https://app.najva.com/api/v1/";
+    private $base_url = "https://app.najva.com/";
+    private $base_api_uri = 'api/v1/';
     private $data;
     private $token;
 
@@ -18,7 +19,7 @@ class RestDriver implements DriverInterface
         $this->data = $data;
         $this->token = $token;
 
-        return $this->callApi('POST','notifications');
+        return $this->callApi('POST',$this->base_api_uri.'notifications');
     }
 
     public function sendLimitedRequest(array $data, string $token)
@@ -26,19 +27,19 @@ class RestDriver implements DriverInterface
         $this->data = $data;
         $this->token = $token;
 
-        return $this->callApi('POST','notifications');
+        return $this->callApi('POST','notification/'.$this->base_api_uri.'notifications');
     }
 
     public function getSegments(string $token, string $api_key)
     {
         $this->token =$token;
-        return $this->callApi('GET',"websites/{$api_key}/segments");
+        return $this->callApi('GET',$this->base_api_uri."websites/{$api_key}/segments");
     }
 
     public function getOneSignalSegments(string $token)
     {
         $this->token = $token;
-        return $this->callApi("GET",'one-signals');
+        return $this->callApi("GET",$this->base_api_uri.'one-signals');
     }
 
     public function callApi(string $method, string $uri)
